@@ -1,0 +1,64 @@
+{
+  "busbar": {
+    "id": 1,
+    "node": "Bus Bar",
+    "positionX": 156.0,
+    "positionY": 480.0,
+    "width": 969.0,
+    "height": 30.0,
+    "iconName": "Bar1",
+    "deviceType": "Utils"
+  },
+  "slots": [
+    {
+      "role": "generator",
+      "positionX": 200.75,
+      "positionY": 200.0,
+      "width": 100.0,
+      "height": 100.0,
+      "iconName": "Generator",
+      "deviceType": "Generator",
+      "lineColor": "blue"
+    },
+    {
+      "role": "generator",
+      "positionX": 398.75,
+      "positionY": 201.0,
+      "width": 100.0,
+      "height": 100.0,
+      "iconName": "Generator",
+      "deviceType": "Generator",
+      "lineColor": "orange"
+    },
+    {
+      "role": "generator",
+      "positionX": 599.85,
+      "positionY": 201.1,
+      "width": 100.0,
+      "height": 100.0,
+      "iconName": "Generator",
+      "deviceType": "Generator",
+      "lineColor": "#0000FF"
+    },
+    {
+      "role": "transformer",
+      "positionX": 901.25,
+      "positionY": 200.0,
+      "width": 100.0,
+      "height": 100.0,
+      "iconName": "Transformer",
+      "deviceType": "REB",
+      "lineColor": "red"
+    },
+    {
+      "role": "inverter_or_solar",
+      "positionX": 600.5,
+      "positionY": 703.0,
+      "width": 100.0,
+      "height": 100.0,
+      "iconName": "Inverter",
+      "deviceType": "Inverter",
+      "lineColor": "#800080"
+    }
+  ]
+}
