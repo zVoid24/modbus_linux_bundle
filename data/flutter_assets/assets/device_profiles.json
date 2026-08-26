@@ -1,28 +1,47 @@
 {
   "profiles": [
     {
-      "profile_id": "generator",
-      "display_name": "Generator",
-      "device_type": "generator",
-      "sld_role": "generator",
-      "installer_max_count": 3,
-      "configured": true,
-      "read": {
-        "register": 3000,
-        "quantity": 2,
-        "data_type": "float32",
-        "scale": 1.0,
-        "uom": "kW"
-      },
-      "write": null
-    },
-    {
       "profile_id": "huawei_smartlogger",
       "display_name": "Huawei SmartLogger",
       "device_type": "huaweiLogger",
       "sld_role": "solar",
       "installer_max_count": 1,
       "configured": true,
+      "connection_type": "tcp",
+      "auto_detect": true,
+      "read": {
+        "register": 40525,
+        "quantity": 2,
+        "data_type": "int32",
+        "scale": 0.001,
+        "uom": "kW"
+      },
+      "write": {
+        "register": 40428,
+        "quantity": 1,
+        "data_type": "int16",
+        "scale": 0.1
+      },
+      "extra_reads": {
+        "energy": {
+          "register": 40560,
+          "quantity": 2,
+          "data_type": "uint32",
+          "scale": 0.1,
+          "uom": "kWh"
+        }
+      }
+    },
+    {
+      "profile_id": "huawei_smartlogger_3000a",
+      "display_name": "Huawei SmartLogger 3000A",
+      "device_type": "huaweiLogger",
+      "sld_role": "solar",
+      "installer_max_count": 1,
+      "configured": true,
+      "connection_type": "tcp",
+      "auto_detect": true,
+      "firmware_versions": ["V300R023C10SPC612"],
       "read": {
         "register": 40525,
         "quantity": 2,
@@ -35,23 +54,222 @@
         "quantity": 1,
         "data_type": "uint16",
         "scale": 0.1
+      },
+      "extra_reads": {
+        "energy": {
+          "register": 40560,
+          "quantity": 2,
+          "data_type": "uint32",
+          "scale": 0.1,
+          "uom": "kWh"
+        }
       }
     },
     {
-      "profile_id": "transformer",
-      "display_name": "Transformer",
+      "profile_id": "edm_data_manager",
+      "display_name": "EDMx-Modbus (SMA Data Manager)",
+      "device_type": "huaweiLogger",
+      "sld_role": "solar",
+      "installer_max_count": 1,
+      "configured": true,
+      "connection_type": "tcp",
+      "fixed_unit_id": 2,
+      "read": {
+        "register": 30775,
+        "quantity": 2,
+        "data_type": "int32",
+        "scale": 0.001,
+        "uom": "kW"
+      },
+      "write": {
+        "register": 40016,
+        "quantity": 1,
+        "data_type": "int16",
+        "scale": 1.0
+      },
+      "extra_reads": {
+        "energy": {
+          "register": 30513,
+          "quantity": 4,
+          "data_type": "uint64",
+          "scale": 0.001,
+          "uom": "kWh"
+        }
+      }
+    },
+    {
+      "profile_id": "pac3120_generator",
+      "display_name": "7KM PAC3120",
+      "device_type": "generator",
+      "sld_role": "generator",
+      "installer_max_count": 3,
+      "configured": true,
+      "connection_type": "rs485",
+      "read": {
+        "register": 65,
+        "quantity": 2,
+        "data_type": "float32",
+        "scale": 0.001,
+        "uom": "kW"
+      },
+      "write": null,
+      "extra_reads": {
+        "energy_import": {
+          "register": 801,
+          "quantity": 4,
+          "data_type": "float64",
+          "scale": 0.001,
+          "uom": "kWh"
+        },
+        "energy_export": {
+          "register": 809,
+          "quantity": 4,
+          "data_type": "float64",
+          "scale": 0.001,
+          "uom": "kWh"
+        }
+      }
+    },
+    {
+      "profile_id": "pac3120_reb",
+      "display_name": "7KM PAC3120",
       "device_type": "reb",
       "sld_role": "transformer",
       "installer_max_count": 1,
       "configured": true,
+      "connection_type": "rs485",
       "read": {
-        "register": 4000,
+        "register": 65,
         "quantity": 2,
-        "data_type": "int32",
-        "scale": 1.0,
-        "uom": "W"
+        "data_type": "float32",
+        "scale": 0.001,
+        "uom": "kW"
       },
-      "write": null
+      "write": null,
+      "extra_reads": {
+        "energy_import": {
+          "register": 801,
+          "quantity": 4,
+          "data_type": "float64",
+          "scale": 0.001,
+          "uom": "kWh"
+        },
+        "energy_export": {
+          "register": 809,
+          "quantity": 4,
+          "data_type": "float64",
+          "scale": 0.001,
+          "uom": "kWh"
+        }
+      }
+    },
+    {
+      "profile_id": "pac3220_generator",
+      "display_name": "7KM PAC3220",
+      "device_type": "generator",
+      "sld_role": "generator",
+      "installer_max_count": 3,
+      "configured": true,
+      "connection_type": "tcp",
+      "read": {
+        "register": 65,
+        "quantity": 2,
+        "data_type": "float32",
+        "scale": 0.001,
+        "uom": "kW"
+      },
+      "write": null,
+      "extra_reads": {
+        "energy": {
+          "register": 809,
+          "quantity": 4,
+          "data_type": "float64",
+          "scale": 0.001,
+          "uom": "kWh"
+        }
+      }
+    },
+    {
+      "profile_id": "pac3220_reb",
+      "display_name": "7KM PAC3220",
+      "device_type": "reb",
+      "sld_role": "transformer",
+      "installer_max_count": 1,
+      "configured": true,
+      "connection_type": "tcp",
+      "read": {
+        "register": 65,
+        "quantity": 2,
+        "data_type": "float32",
+        "scale": 0.001,
+        "uom": "kW"
+      },
+      "write": null,
+      "extra_reads": {
+        "energy": {
+          "register": 809,
+          "quantity": 4,
+          "data_type": "float64",
+          "scale": 0.001,
+          "uom": "kWh"
+        }
+      }
+    },
+    {
+      "profile_id": "7kt0310_generator",
+      "display_name": "SMART 7KT (7KT0310)",
+      "device_type": "generator",
+      "sld_role": "generator",
+      "installer_max_count": 3,
+      "configured": true,
+      "connection_type": "rs485",
+      "read": {
+        "register": 30042,
+        "quantity": 2,
+        "data_type": "float32",
+        "scale": 0.001,
+        "uom": "kW",
+        "endianness": "CDAB"
+      },
+      "write": null,
+      "extra_reads": {
+        "energy": {
+          "register": 30058,
+          "quantity": 2,
+          "data_type": "float32",
+          "scale": 0.001,
+          "uom": "kWh",
+          "endianness": "CDAB"
+        }
+      }
+    },
+    {
+      "profile_id": "7kt0310_reb",
+      "display_name": "SMART 7KT (7KT0310)",
+      "device_type": "reb",
+      "sld_role": "transformer",
+      "installer_max_count": 1,
+      "configured": true,
+      "connection_type": "rs485",
+      "read": {
+        "register": 30042,
+        "quantity": 2,
+        "data_type": "float32",
+        "scale": 0.001,
+        "uom": "kW",
+        "endianness": "CDAB"
+      },
+      "write": null,
+      "extra_reads": {
+        "energy": {
+          "register": 30058,
+          "quantity": 2,
+          "data_type": "float32",
+          "scale": 0.001,
+          "uom": "kWh",
+          "endianness": "CDAB"
+        }
+      }
     },
     {
       "profile_id": "radiation_meter",
